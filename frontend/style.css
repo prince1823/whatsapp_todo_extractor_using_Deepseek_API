@@ -1,0 +1,185 @@
+:root {
+    --primary: #128C7E;
+    --secondary: #25D366;
+    --light: #DCF8C6;
+    --dark: #075E54;
+    --blue: #3b82f6;
+    --green: #22c55e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e9f5ec, #e0f7ff);
+    color: #333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.upload-area {
+    border: 2px dashed var(--secondary);
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--light);
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.upload-area:hover {
+    background: #d3f9c7;
+    border-color: var(--primary);
+    transform: scale(1.02);
+}
+
+#fileInput {
+    display: none;
+}
+
+#results {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.todo-section {
+    flex: 1;
+    min-width: 45%;
+}
+
+.todo-section h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 1.4rem;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.todo-item:hover {
+    transform: scale(1.01);
+}
+
+.todo-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.todo-text {
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.todo-time {
+    font-size: 0.85rem;
+    color: #666;
+    min-width: 100px;
+    text-align: right;
+}
+
+.completed .todo-text {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    background-size: 200% auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#downloadMine {
+    background-image: linear-gradient(to right, #00c9ff, #92fe9d);
+}
+
+#downloadMine:hover {
+    background-position: right center;
+    transform: scale(1.02);
+}
+
+#downloadOthers {
+    background-image: linear-gradient(to right, #f77062, #fe5196);
+}
+
+#downloadOthers:hover {
+    background-position: right center;
+    transform: scale(1.02);
+}
+.download-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.download-row .download-btn {
+    flex: 1 1 45%;
+    max-width: 300px;
+}
+
+
+.empty-msg {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 25px;
+    animation: fadeIn 0.4s ease;
+}
