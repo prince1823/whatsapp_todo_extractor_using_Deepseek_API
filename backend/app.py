@@ -29,8 +29,7 @@ Extract all current or upcoming actionable tasks (todos) from messages, even whe
     "timestamp": "original timestamp",
     "sender": "sender name",
     "recipient": "me | other name",
-    "task": "concise task description",
-    "priority": "low | medium | high"
+    "task": "concise task description"
   }
 ]
 
