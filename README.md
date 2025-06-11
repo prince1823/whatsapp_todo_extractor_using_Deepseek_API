@@ -1,1 +1,1 @@
-# whatsapp_todo_extractor_using_Deepseek_API
+# WhatsApp Todo Extractor using DeepSeek API
