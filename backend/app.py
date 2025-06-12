@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = os.getenv("DEEPSEEK_API_KEY") or "your_api_key_here"  # Replace if needed
+API_KEY = os.getenv("DEEPSEEK_API_KEY")
 
 SYSTEM_PROMPT = """
 You are a smart WhatsApp chat analyzer. Assume that the first sender in the uploaded WhatsApp chat is the user (called "me").
@@ -54,11 +54,9 @@ Extract all current or upcoming actionable tasks (todos) from messages, even whe
     - **Low**: “whenever you can”, “later”, “no rush”
 12. Output a valid JSON **array only**, no markdown, no explanations, no headings.
 13. If no tasks are found, return an empty array: []
-14. Timestamps and sender names must match the chat format.
+14. Timestamps and sender names must match the chat format.         
 15. Avoid duplicates — extract unique actionable items only.
 16. Consider future intent phrases like "I'll check", "check krna", "check kar lunga", "kal check krte hain", "socha check kar lunga", etc. as valid TODOs. These imply upcoming tasks and must be included.
-
-
 📌 Examples:
 - Message: "plz snd the ppt and check krna notes bhi"
   → Output: 2 tasks — send PPT and check notes
@@ -68,6 +66,22 @@ Extract all current or upcoming actionable tasks (todos) from messages, even whe
   → Task: Send the slides via email (priority: high)
 - Message: "me: thik hai bhej dunga"
   → Not a new task
+- Message: "Okay, I'll check my inbox."
+  → Output:
+  [{ "timestamp": "10/06/2025 16:53", "sender": "me", "recipient": "me", "task": "Check inbox" }]
+- Message: "check krlunga"
+  → Output:
+  [{ "timestamp": "10/06/2025 16:53", "sender": "me", "recipient": "me", "task": "Check inbox" }]
+-Message: "ok check krleta hu "
+  → Output:
+  [{ "timestamp": "10/06/2025 16:53", "sender": "me", "recipient": "me", "task": "Check inbox" }]
+Message: "ok dekhlunga apne pass ek baar agar hoga toh"
+  → Output:
+  [{ "timestamp": "10/06/2025 16:53", "sender": "me", "recipient": "me", "task": "Check inbox" }]
+-Message: "thik hai check krlunga"
+  → Output:
+  [{ "timestamp": "10/06/2025 16:53", "sender": "me", "recipient": "me", "task": "Check inbox" }]
+
 
 Keep the response structured, smart, and JSON-only. Don't include ``` or explanations.
 """
