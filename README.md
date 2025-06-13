@@ -55,3 +55,8 @@ It supports recognizing varied languages and spelling errors to generate a struc
 - Virtual environment folder (`venv`) is excluded from Git.  
 - DeepSeek API key is needed for extraction — configure it in your environment variables or config files.
 
+
+
+
+
+https://whatsapp-todo-extractor-deepseek-api-7q3s.onrender.com/extract
