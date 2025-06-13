@@ -10,7 +10,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
-CORS(app, resources={r"/*": {"origins": "*"}})
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
