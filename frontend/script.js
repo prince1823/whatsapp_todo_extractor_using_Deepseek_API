@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData();
       formData.append('file', file);
   
-      fetch('https://whatsapp-todo-extractor-deepseek-api-7q3s.onrender.com/extract', {
+      fetch('https://whatsapp-todo-extractor01.onrender.com/extract', {
         method: 'POST',
         body: formData
       })
