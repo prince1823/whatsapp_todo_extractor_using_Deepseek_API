@@ -10,10 +10,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
-@app.route("/", methods=["GET"])
-def home():
-    return "✅ WhatsApp To-Do Extractor Backend is Running"
-
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
@@ -133,5 +129,9 @@ def extract_todos():
     except Exception as e:
         return jsonify({"error": f"Processing error: {str(e)}"}), 500
 
+
+@app.route("/", methods=["GET"])
+def home():
+    return "✅ WhatsApp To-Do Extractor Backend is Running"
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
