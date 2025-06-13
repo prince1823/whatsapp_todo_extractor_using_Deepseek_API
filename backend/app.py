@@ -10,6 +10,10 @@ from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
+@app.route("/", methods=["GET"])
+def home():
+    return "✅ WhatsApp To-Do Extractor Backend is Running"
+
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
